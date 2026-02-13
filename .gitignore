@@ -1,0 +1,4 @@
+venv/
+users.db
+ngrok.exe
+__pycache__/
