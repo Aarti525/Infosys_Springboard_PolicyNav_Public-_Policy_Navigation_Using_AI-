@@ -1,71 +1,64 @@
-# 🚀 Infosys LLM – Secure Readability Analysis System
+# 🔐 User Authentication Module (Milestone 1)
 
-A secure web-based Readability Analysis Dashboard built using **Streamlit**, featuring authentication with Email OTP verification, password recovery, file upload support, and professional readability metrics visualization.
+## 📌 Project Overview
+This module implements a **secure user authentication system** using **Streamlit** and **SQLite**.  
+It provides **Signup**, **Login**, and **Forgot Password** functionality using **security questions**.
 
----
-
-## 📖 Project Overview
-
-Infosys LLM is designed to:
-
-- Provide secure user authentication
-- Analyze text readability using standard metrics
-- Interpret reading levels professionally
-- Support text and document uploads
-- Display interactive visual dashboards
-
-This system simulates a company-level product with structured UI and validated workflows.
+This module is developed as part of **Milestone 1** and focuses only on **user authentication**.
 
 ---
 
-## 🔐 Authentication Features
+## 🎯 Features Implemented
 
-- ✅ User Signup with:
-  - Email format validation
-  - Strong password validation
-  - Security Question & Answer
-- ✅ Email OTP Verification (Gmail App Password)
-- ✅ Secure Password Hashing (bcrypt)
-- ✅ Login System
-- ✅ Forgot Password with Security Question Validation
-- ✅ SQLite Database Integration
-
----
-
-## 📊 Readability Metrics Implemented
-
-The system calculates the following 5 metrics:
-
-1. **Flesch Reading Ease (FRE)**
-2. **Flesch-Kincaid Grade Level (FKGL)**
-3. **Gunning Fog Index**
-4. **SMOG Index**
-5. **Automated Readability Index (ARI)**
-
-
-## 🎨 UI & Design Highlights
-
-- Corporate-style clean layout
-- Interactive Plotly visualizations
-- Professional color palette
-- Clear validation messages
-- No black UI artifacts
-- Button-based navigation (no toggle confusion)
+### ✅ 1. User Signup
+- New users can create an account
+- Fields included:
+  - Username
+  - Email (unique)
+  - Password
+  - Confirm Password
+  - Security Question
+  - Security Answer
+- Validations:
+  - All fields required
+  - Password and confirm password must match
+  - Email must be unique
 
 ---
 
-## 🛠 Technologies Used
-
-- Python
-- Streamlit
-- SQLite
-- bcrypt
-- textstat
-- Plotly
-- PyPDF2 / pypdf
-- python-docx
+### ✅ 2. User Login
+- Registered users can log in using:
+  - Email
+  - Password
+- Validations:
+  - Incorrect email or password is handled properly
+- On successful login:
+  - User is redirected to a **Dashboard**
+  - Displays a **Welcome message with user email**
 
 ---
+
+### ✅ 3. Forgot Password (Security Question Based)
+- User can reset password using:
+  - Registered email
+  - Security question & answer
+- Validations:
+  - Email must exist
+  - Security answer must match
+  - New password confirmation required
+- Password is updated securely in the database
+
+---
+
+## 🧰 Technologies Used
+
+- **Frontend:** Streamlit  
+- **Backend:** Python  
+- **Database:** SQLite (`users.db`)  
+- **Security:**  
+  - Password hashing  
+  - Security question verification  
+
 
 ## ⚙ Installation & Setup
 
@@ -95,23 +88,6 @@ pip install streamlit bcrypt textstat plotly PyPDF2 python-docx
 streamlit run app.py
 .\ngrok http 8501
 ```
-
----
-
-## 📧 Email OTP Configuration
-
-To enable OTP functionality:
-
-1. Enable **2-Step Verification** in Gmail
-2. Generate a **Gmail App Password**
-3. Replace inside `app.py`:
-
-```python
-EMAIL_ADDRESS = "your_email@gmail.com"
-EMAIL_PASSWORD = "your_generated_app_password"
-```
-
-
 ---
 
 ## 🗄 Database Information
@@ -122,15 +98,6 @@ EMAIL_PASSWORD = "your_generated_app_password"
 - Includes role-ready structure (admin flag supported)
 
 ---
-
-## 🔒 Validations Implemented
-
-- Email format validation
-- Password strength enforcement
-- Security answer verification
-- OTP verification before login
-- Minimum text length validation for analysis
-- File type validation for uploads
 
 
 ## 👨‍💻 Developed For
